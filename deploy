@@ -1,6 +1,26 @@
 #!/bin/bash
 
-git-stage-all-commit-and-push
 
-git-increment-tag-and-push
+# add and commit all modified files
+
+git add *
+git commit -m "auto commit"
+
+# push the current branch
+
+currentBranch=`git rev-parse --abbrev-ref HEAD`
+git push -u origin $currentBranch
+
+# identify latest tag 
+currentTag=`git describe --tags $(git rev-list --tags --max-count=1)`
+
+# create new tag from current latest
+prefix=`echo $currentTag | sed -e "s/^\(.*\)\.[0-9]*/\1/"`
+oldSuffix=`echo $currentTag | sed -e "s/^.*\.//"`
+newSuffix=`echo "$oldSuffix + 1" | bc`
+newTag=${prefix}.${newSuffix}
+
+# add the new tag and push
+git tag $newTag
+git push origin --tags
 
