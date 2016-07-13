@@ -6,7 +6,7 @@ public struct ExampleObject {
   }
 
   public var name: String {
-    return "name_\(identifier)"
+    return "NAME_\(identifier)"
   }
 }
 

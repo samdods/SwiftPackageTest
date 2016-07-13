@@ -1,0 +1,6 @@
+#!/bin/bash
+
+git-stage-all-commit-and-push
+
+git-increment-tag-and-push
+
