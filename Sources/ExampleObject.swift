@@ -4,5 +4,9 @@ public struct ExampleObject {
   public init(identifier: String) {
     self.identifier = identifier
   }
+
+  public var name: String {
+    return "\name_\(identifier)"
+  }
 }
 
