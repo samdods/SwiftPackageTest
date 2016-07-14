@@ -1,4 +1,7 @@
+
+
 public struct ExampleObject {
+
   public let identifier: String
 
   public init(identifier: String) {
@@ -8,5 +11,5 @@ public struct ExampleObject {
   public var name: String {
     return "NAME_\(identifier)"
   }
+  
 }
-
